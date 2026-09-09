@@ -1,0 +1,32 @@
+{
+  "name": "voxaphone-mcp",
+  "version": "1.0.0",
+  "description": "Official Model Context Protocol (MCP) server for Voxana AI — a sub-800ms, zero-data-at-rest voice execution substrate bridging LLM reasoning agents to real-time telephony and business action workflows.",
+  "type": "module",
+  "main": "dist/server.js",
+  "bin": {
+    "voxaphone-mcp": "dist/server.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/server.js",
+    "dev": "tsx src/server.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=18.17.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.5.0",
+    "zod": "^3.23.8",
+    "zod-to-json-schema": "^3.23.2",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4",
+    "tsx": "^4.16.2",
+    "@types/node": "^20.14.10"
+  },
+  "license": "UNLICENSED",
+  "private": true
+}
