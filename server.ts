@@ -44,6 +44,17 @@ function createServer(): Server {
       name: tool.name,
       description: tool.description,
       inputSchema: zodToJsonSchema(tool.inputSchema, { target: "jsonSchema7" }),
+      // Per the MCP spec, behavioral hints live under `annotations` on the
+      // Tool object (not as flat top-level fields). All four hints are
+      // declared explicitly and set to real, non-default values reflecting
+      // each tool's actual behavior — see src/tools/index.ts for the
+      // per-tool rationale.
+      annotations: {
+        readOnlyHint: tool.annotations.readOnlyHint,
+        destructiveHint: tool.annotations.destructiveHint,
+        idempotentHint: tool.annotations.idempotentHint,
+        openWorldHint: tool.annotations.openWorldHint,
+      },
     })),
   }));
 
